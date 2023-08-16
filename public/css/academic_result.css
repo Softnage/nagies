@@ -1,0 +1,14 @@
+.academic{
+    padding: 0 5%;
+    margin-top: 50px;
+}
+.academic li{
+    list-style-type: disc;
+}
+.text_{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
