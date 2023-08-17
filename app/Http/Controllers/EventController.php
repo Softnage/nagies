@@ -25,6 +25,12 @@ class EventController extends Controller
         return view('events.show', compact('event'));
     }
 
+    public function details($id)
+    {
+        $event = Event::findOrFail($id);
+        return view('events.details', compact('event'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([

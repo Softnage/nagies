@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/event/{event}', [EventController::class, 'details'])->name('details');
+Route::get('/new/{news}', [NewsController::class, 'Details'])->name('newsDetails');
+Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/campus-and-location', [PagesController::class, 'campusAndLocation'])->name('campus_and_location');
 Route::get('/co-curricular-activities', [PagesController::class, 'coCurricularActivities'])->name('co_curricular_activities');
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');

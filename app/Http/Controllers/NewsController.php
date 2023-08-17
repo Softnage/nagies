@@ -25,6 +25,12 @@ class NewsController extends Controller
         return view('news.show', compact('news'));
     }
 
+    public function Details($id)
+    {
+        $news = News::findOrFail($id);
+        return view('news.newsDetails', compact('news'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([

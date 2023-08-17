@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event;
+use App\Models\News;
 
 class PagesController extends Controller
 {
+    public function home()
+    {
+        $events = Event::all();
+        $news = News::all();
+        return view('pages.home', compact('events', 'news'));
+    }
+
     public function campusAndLocation()
     {
         return view('pages.campus_and_location');

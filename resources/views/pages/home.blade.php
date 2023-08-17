@@ -2,6 +2,9 @@
 <html lang="en">
 @include('layouts.head')
 <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+<link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 <title>Home - Nagies Angels Educational Centre </title>
 
 <body>
@@ -89,7 +92,37 @@
             </div>
         </section>
 
-        <section class="events"></section>
+        <section>
+            <div class="title">
+                <h1 style="margin-bottom: -3rem">Events</h1>
+            </div>
+            <div class="slidde">
+                <div #swiperRef="" class="swiper mySwiper9" style="padding: 0 1rem">
+                    <div class="swiper-wrapper">
+                        @if ($events->count() > 0)
+                            @foreach ($events as $event)
+                                <div class="swiper-slide">
+                                    <a href="{{ route('details', $event->id) }}" class="event-link">
+                                        <div class="event-slide">
+                                            <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}"
+                                                class="event-image">
+                                            <h3>{{ $event->title }}</h3>
+                                            <p class="date">
+                                                {{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y g:i A') }}
+                                                - {{ \Carbon\Carbon::parse($event->end_time)->format('F d, Y g:i A') }}
+                                            </p>
+                                            <p>{{ Illuminate\Support\Str::limit($event->description, 60) }}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                        @else
+                            <p>No upcoming events at the moment.</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section>
             <div class="title">
@@ -227,9 +260,60 @@
             </div>
         </div>
 
+        <section>
+            <div class="title">
+                <h1 style="margin-bottom: -3rem">News</h1>
+            </div>
+            <div class="slidde">
+                <div #swiperRef="" class="swiper mySwiper8" style="padding: 0 1rem">
+                    <div class="swiper-wrapper">
+                        @if ($news->count() > 0)
+                            @foreach ($news as $new)
+                                <div class="swiper-slide">
+                                    <a href="{{ route('newsDetails', $new->id) }}" class="event-link">
+                                        <div class="event-slide">
+                                            <img src="{{ asset('storage/' . $new->image) }}"
+                                                alt="{{ $new->title }}" class="news-image">
+                                            <h3>{{ $new->title }}</h3>
+                                            <p>{{ Illuminate\Support\Str::limit($new->content, 60) }}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @endforeach
+                        @else
+                            <p>No News</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         @include('layouts.footer')
         <!-- lightbox Script -->
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                $('.event-slider').slick({
+                    responsive: [{
+                        breakpoint: 680,
+                        settings: {
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }],
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                });
+            });
+        </script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
 
@@ -243,6 +327,40 @@
                 rewind: false,
                 slidesPerView: 3,
                 // centeredSlides: true,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "fraction",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
+
+        <script>
+            var swiper = new Swiper(".mySwiper9", {
+                autoplay: true,
+                rewind: false,
+                slidesPerView: 3,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "fraction",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
+
+        <script>
+            var swiper = new Swiper(".mySwiper8", {
+                autoplay: true,
+                rewind: false,
+                slidesPerView: 3,
                 spaceBetween: 30,
                 pagination: {
                     el: ".swiper-pagination",

@@ -1,5 +1,16 @@
-.events {
-    height: 60vh;
-    background-color: whitesmoke;
-    margin-top: 2rem;
+.event-slide {
+    text-align: justify;
+}
+
+.event-slide img {
+    height: 30vh;
+}
+
+.event-slide h3,
+.event-slide p {
+    padding: 1rem;
+}
+
+.date {
+    font-weight: 600;
 }

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 </head>
 
 <body>
@@ -44,7 +43,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="description">Description</label>
-                        <textarea name="description" id="description"></textarea>
+                        <textarea name="description" id="description" class="form-control" rows="5"></textarea>
                     </div>
 
                     <div class="form-group mb-3">
@@ -68,14 +67,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#description'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
 
     <script>
         function previewImage(event) {

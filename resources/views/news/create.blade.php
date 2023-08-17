@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 </head>
 
 <body>
@@ -44,7 +43,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="content">Content</label>
-                        <textarea name="content" id="content"></textarea>
+                        <textarea name="content" id="content" class="form-control" rows="5"></textarea>
                     </div>
                     <div class="form-group mb-3">
                         <label for="image">Select Image</label>
@@ -59,14 +58,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#content'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
 
     <script>
         document.getElementById('imageInput').addEventListener('change', function(event) {
@@ -105,7 +96,7 @@
         @if (session('success'))
             toastr.options = {
                 "positionClass": "toast-bottom-right",
-                "timeOut": 3000, // Display time in milliseconds (3 seconds)
+                "timeOut": 3000,
                 "closeButton": true,
                 "progressBar": true,
             };
