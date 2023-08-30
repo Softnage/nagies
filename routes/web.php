@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
+use App\Models\News;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $news = News::all();
+    return view('news.index', compact('news'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/event/{event}', [EventController::class, 'details'])->name('details');
