@@ -14,10 +14,16 @@
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="./images/school-banner-01.jpg" alt="school-banner">
+                <img src="./images/nagies-school-hero1.jpg" alt="school-banner">
             </div>
             <div class="swiper-slide">
-                <img src="./images/school-banner-02.jpg" alt="school-banner">
+                <img src="./images/Nagies-school-hero-2.jpg" alt="school-banner">
+            </div>
+            <div class="swiper-slide">
+                <img src="./images/Nagies-hero-1.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="./images/school-banner-01.jpg" alt="school-banner">
             </div>
             <div class="swiper-slide">
                 <img src="./images/school-banner-03.jpg" alt="">
@@ -102,22 +108,29 @@
                         @if ($events->count() > 0)
                             @foreach ($events as $event)
                                 <div class="swiper-slide">
-                                    <a href="{{ route('details', $event->id) }}" class="event-link">
-                                        <div class="event-slide">
-                                            <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}"
-                                                class="event-image">
-                                            <h3>{{ $event->title }}</h3>
-                                            <p class="date">
-                                                {{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y g:i A') }}
-                                                - {{ \Carbon\Carbon::parse($event->end_time)->format('F d, Y g:i A') }}
-                                            </p>
-                                            <p>{{ Illuminate\Support\Str::limit($event->description, 60) }}</p>
+                                    {{-- <a href="{{ route('details', $event->id) }}" class="event-link"> --}}
+                                    <div class="card event-slide">
+                                        <div class="card-image"
+                                            style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $event->image) }}'); background-position: center; background-size: cover;">
                                         </div>
-                                    </a>
+                                        <div class="title">
+                                            <h1 style="font-size: 25px ">{{ $event->title }}</h1>
+                                        </div>
+                                        <p class="date" style="font-size: 12px; text-align:center">
+                                            {{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y g:i A') }}
+                                            - {{ \Carbon\Carbon::parse($event->end_time)->format('F d, Y g:i A') }}
+                                        </p>
+                                        <div class="message">
+                                            <p style="font-size: 16px">
+                                                {{ Illuminate\Support\Str::limit($event->description, 100) }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    {{-- </a> --}}
                                 </div>
                             @endforeach
                         @else
-                            <p>No upcoming events at the moment.</p>
+                            <p></p>
                         @endif
                     </div>
                 </div>
@@ -270,19 +283,25 @@
                         @if ($news->count() > 0)
                             @foreach ($news as $new)
                                 <div class="swiper-slide">
-                                    <a href="{{ route('newsDetails', $new->id) }}" class="event-link">
-                                        <div class="event-slide">
-                                            <img src="{{ asset('storage/' . $new->image) }}"
-                                                alt="{{ $new->title }}" class="news-image">
-                                            <h3>{{ $new->title }}</h3>
-                                            <p>{{ Illuminate\Support\Str::limit($new->content, 60) }}</p>
+                                    <div class="card event-slide">
+                                        <div class="card-image"
+                                            style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $new->image) }}'); background-position: center; background-size: cover;">
                                         </div>
-                                    </a>
+                                        <div class="title">
+                                            <h1 style="font-size: 25px ">{{ $new->title }}</h1>
+                                        </div>
+                                        <div class="message">
+                                            <p style="font-size: 16px">
+                                                {{ Illuminate\Support\Str::limit($new->content, 100) }}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             @endforeach
                         @else
-                            <p>No News</p>
+                            <p></p>
                         @endif
+
                     </div>
                 </div>
             </div>

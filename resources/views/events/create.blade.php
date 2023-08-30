@@ -91,17 +91,7 @@
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <script>
-        @if (session('success'))
-            toastr.options = {
-                "positionClass": "toast-bottom-right",
-                "timeOut": 3000, // Display time in milliseconds (3 seconds)
-                "closeButton": true,
-                "progressBar": true,
-            };
-            toastr.success('{{ session('success') }}');
-        @endif
-    </script>
+
 
 </body>
 

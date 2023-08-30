@@ -27,6 +27,54 @@ header {
     padding-right: 6%;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card {
+    width: 95%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+.card-date-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 1500px) {
+    .card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 1200px) {
+    .card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 750px) {
+    .card-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
 .slogan {
     display: flex;
     justify-content: flex-end;
