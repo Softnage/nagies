@@ -20,6 +20,36 @@ p {
     color: #000;
 }
 
+.galcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gal {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.gal img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.gal h3 {
+    margin-top: 3rem;
+}
+
+.gall img {
+    height: 400px;
+    width: 95%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
 header {
     background-color: #0c055b;
     padding-block: 5px;

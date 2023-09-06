@@ -8,142 +8,29 @@
     @include('layouts.header')
     @include('layouts.navbar')
 
-
-
     <section>
-        <h2 class="text-center mt-5">Classroom</h2>
-        <div class="gallery_">
-            <a href="{{ asset('images/classroom-01.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-1">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/classroom-02.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-2">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/classroom-03.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-3">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/classroom-04.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-4">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/classroom-05.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-5">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/classroom-06.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-6">
-
-                </div>
-            </a>
-
-        </div>
-    </section>
-
-
-    <section>
-        <h2 class="text-center mt-5">ICT Laboratory</h2>
-        <div class="gallery_">
-            <a href="{{ asset('images/it_lab-01.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-7">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/it_lab-02.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-8">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/it_lab-03.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-9">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/it_lab-04.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-10">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/it_lab-05.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-11">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/it_lab-06.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-12">
-
-                </div>
-            </a>
-
-        </div>
-    </section>
-
-
-    <section>
-        <h2 class="text-center mt-5">Playground</h2>
-        <div class="gallery_">
-            <a href="{{ asset('images/playground-01.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-13">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/playground-02.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-14">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/playground-03.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-15">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/playground-04.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-16">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/playground-05.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-17">
-
-                </div>
-            </a>
-            <a href="{{ asset('images/playground-06.jpg') }}" data-lightbox="gallery"
-                data-title="Nagies Angels Educational Centre" download>
-                <div class="gallery-18">
-
-                </div>
-            </a>
-
-        </div>
+        @foreach ($galleries as $gallery)
+            <h2 class="text-center mt-5">{{ $gallery->title }}</h2>
+            <div class="gallery_ gall">
+                @if ($gallery->images->count() > 0)
+                    @foreach ($gallery->images as $image)
+                        <div class="">
+                            <div>
+                                <a href="{{ asset('storage/' . $image->path) }}">
+                                    <img src="{{ asset('storage/' . $image->path) }}" alt="Gallery Image"
+                                        class="img-thumbnail">
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <p>No images available for this gallery.</p>
+                @endif
+            </div>
+        @endforeach
     </section>
 
     @include('layouts.footer')
-
-
 
     <!-- lightbox Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

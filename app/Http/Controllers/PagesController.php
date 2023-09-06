@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\News;
+use App\Models\GalleryImage;
+use App\Models\Gallery;
 
 class PagesController extends Controller
 {
@@ -42,7 +44,8 @@ class PagesController extends Controller
 
     public function gallery()
     {
-        return view('pages.gallery');
+        $galleries = Gallery::all();
+        return view('pages.gallery', compact('galleries'));
     }
 
     public function jhs()

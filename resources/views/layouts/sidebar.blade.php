@@ -35,6 +35,14 @@
                         <span class="hide-menu">Events</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('galleries.index') }}" aria-expanded="false">
+                        <span>
+                            <i class="far fa-images"></i> <!-- You can use an appropriate icon for galleries -->
+                        </span>
+                        <span class="hide-menu">Galleries</span>
+                    </a>
+                </li>
                 <li class="sidebar-item mt-5">
                     <a class="sidebar-link" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
