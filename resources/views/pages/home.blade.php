@@ -108,25 +108,25 @@
                         @if ($events->count() > 0)
                             @foreach ($events as $event)
                                 <div class="swiper-slide">
-                                    {{-- <a href="{{ route('details', $event->id) }}" class="event-link"> --}}
-                                    <div class="card event-slide">
-                                        <div class="card-image"
-                                            style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $event->image) }}'); background-position: center; background-size: cover;">
-                                        </div>
-                                        <div class="title">
-                                            <h1 style="font-size: 25px ">{{ $event->title }}</h1>
-                                        </div>
-                                        <p class="date" style="font-size: 12px; text-align:center">
-                                            {{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y g:i A') }}
-                                            - {{ \Carbon\Carbon::parse($event->end_time)->format('F d, Y g:i A') }}
-                                        </p>
-                                        <div class="message">
-                                            <p style="font-size: 16px">
-                                                {{ Illuminate\Support\Str::limit($event->description, 100) }}
+                                    <a href="{{ route('details', $event->id) }}" class="event-link">
+                                        <div class="card event-slide">
+                                            <div class="card-image"
+                                                style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $event->image) }}'); background-position: center; background-size: cover;">
+                                            </div>
+                                            <div class="title">
+                                                <h1 style="font-size: 25px ">{{ $event->title }}</h1>
+                                            </div>
+                                            <p class="date" style="font-size: 12px; text-align:center">
+                                                {{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y g:i A') }}
+                                                - {{ \Carbon\Carbon::parse($event->end_time)->format('F d, Y g:i A') }}
                                             </p>
+                                            <div class="message">
+                                                <p style="font-size: 16px">
+                                                    {{ Illuminate\Support\Str::limit($event->description, 100) }}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    {{-- </a> --}}
+                                    </a>
                                 </div>
                             @endforeach
                         @else
