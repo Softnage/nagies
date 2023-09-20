@@ -108,8 +108,8 @@
                         @if ($events->count() > 0)
                             @foreach ($events as $event)
                                 <div class="swiper-slide">
-                                    <a href="{{ route('details', $event->id) }}" class="event-link">
-                                        <div class="card event-slide">
+                                    <div class="card event-slide">
+                                        <a href="{{ route('details', $event->id) }}" class="event-link">
                                             <div class="card-image"
                                                 style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $event->image) }}'); background-position: center; background-size: cover;">
                                             </div>
@@ -125,8 +125,8 @@
                                                     {{ Illuminate\Support\Str::limit($event->description, 100) }}
                                                 </p>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
                             @endforeach
                         @else
@@ -284,17 +284,19 @@
                             @foreach ($news as $new)
                                 <div class="swiper-slide">
                                     <div class="card event-slide">
-                                        <div class="card-image"
-                                            style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $new->image) }}'); background-position: center; background-size: cover;">
-                                        </div>
-                                        <div class="title">
-                                            <h1 style="font-size: 25px ">{{ $new->title }}</h1>
-                                        </div>
-                                        <div class="message">
-                                            <p style="font-size: 16px">
-                                                {{ Illuminate\Support\Str::limit($new->content, 100) }}
-                                            </p>
-                                        </div>
+                                        <a href="{{ route('newsDetails', $new->id) }}" class="event-link">
+                                            <div class="card-image"
+                                                style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $new->image) }}'); background-position: center; background-size: cover;">
+                                            </div>
+                                            <div class="title">
+                                                <h1 style="font-size: 25px ">{{ $new->title }}</h1>
+                                            </div>
+                                            <div class="message">
+                                                <p style="font-size: 16px">
+                                                    {{ Illuminate\Support\Str::limit($new->content, 100) }}
+                                                </p>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             @endforeach

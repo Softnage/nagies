@@ -12,20 +12,18 @@
     @include('layouts.navbar')
 
     <div class="container-fluid mt-5">
-        <h2>News Details</h2>
-        <div class="card">
-            <div class="card-header">
-                {{ $news->title }}
-            </div>
-            <div class="card-body">
+        <div class="details">
+            @if ($news->image)
+                <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}" class="img-fluid"
+                    height="300px" width="300px" style="object-fit: cover; border-radius: 10px">
+            @endif
+            <div>
+                <div class="news-title">
+                    {{ $news->title }}
+                </div>
                 @php
                     echo $news->content;
                 @endphp
-
-                @if ($news->image)
-                    <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}" class="img-fluid"
-                        height="300px" width="300px" style="object-fit: cover; border-radius: 10px">
-                @endif
             </div>
         </div>
     </div>
@@ -39,14 +37,26 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
+
+    <style>
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .news-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .details img {
+            width: 90%;
+            height: 500px;
+        }
+    </style>
 </body>
 
 </html>
