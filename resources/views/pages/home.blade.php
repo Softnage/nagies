@@ -100,45 +100,6 @@
 
         <section>
             <div class="title">
-                <h1 style="margin-bottom: -3rem">Events</h1>
-            </div>
-            <div class="slidde">
-                <div #swiperRef="" class="swiper mySwiper9" style="padding: 0 1rem">
-                    <div class="swiper-wrapper">
-                        @if ($events->count() > 0)
-                            @foreach ($events as $event)
-                                <div class="swiper-slide">
-                                    <div class="card event-slide">
-                                        <a href="{{ route('details', $event->id) }}" class="event-link">
-                                            <div class="card-image"
-                                                style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $event->image) }}'); background-position: center; background-size: cover;">
-                                            </div>
-                                            <div class="title">
-                                                <h1 style="font-size: 25px ">{{ $event->title }}</h1>
-                                            </div>
-                                            <p class="date" style="font-size: 12px; text-align:center">
-                                                {{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y g:i A') }}
-                                                - {{ \Carbon\Carbon::parse($event->end_time)->format('F d, Y g:i A') }}
-                                            </p>
-                                            <div class="message">
-                                                <p style="font-size: 16px">
-                                                    {{ Illuminate\Support\Str::limit($event->description, 100) }}
-                                                </p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @else
-                            <p></p>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="title">
                 <h1>Nagies at Glance</h1>
             </div>
             <div class="glance">
@@ -193,9 +154,48 @@
                 </div>
             </div>
         </section>
+
+        <section>
+            <div class="title">
+                <h1 style="margin-bottom: -3rem">Events</h1>
+            </div>
+            <div class="slidde">
+                <div #swiperRef="" class="swiper mySwiper9" style="padding: 0 1rem">
+                    <div class="swiper-wrapper">
+                        @if ($events->count() > 0)
+                            @foreach ($events as $event)
+                                <div class="swiper-slide">
+                                    <div class="card event-slide">
+                                        <a href="{{ route('details', $event->id) }}" class="event-link">
+                                            <div class="card-image"
+                                                style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $event->image) }}'); background-position: center; background-size: cover;">
+                                            </div>
+                                            <div class="">
+                                                <h1 style="font-size: 25px; text-align:center; margin-top: 1rem">
+                                                    {{ $event->title }}</h1>
+                                            </div>
+                                            <p class="date" style="font-size: 12px; text-align:center">
+                                                {{ \Carbon\Carbon::parse($event->start_time)->format('F d, Y g:i A') }}
+                                                - {{ \Carbon\Carbon::parse($event->end_time)->format('F d, Y g:i A') }}
+                                            </p>
+                                            <div class="message">
+                                                <p style="font-size: 16px">
+                                                    {{ Illuminate\Support\Str::limit($event->description, 100) }}
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <p></p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="explore">
-
-
             <div class="contain mt-5">
                 <div class="image" style="background-color: #0c055b; height:300px">
                     <div class="text">
@@ -288,8 +288,9 @@
                                             <div class="card-image"
                                                 style="width: 100%; height: 250px; background-image:url('{{ asset('storage/' . $new->image) }}'); background-position: center; background-size: cover;">
                                             </div>
-                                            <div class="title">
-                                                <h1 style="font-size: 25px ">{{ $new->title }}</h1>
+                                            <div class="">
+                                                <h1 style="font-size: 25px; text-align:center; margin-top: 1rem">
+                                                    {{ $new->title }}</h1>
                                             </div>
                                             <div class="message">
                                                 <p style="font-size: 16px">
