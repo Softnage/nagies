@@ -56,6 +56,17 @@
             width: 90%;
             height: 500px;
         }
+
+        @media only screen and (max-width: 780px) {
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            .details img {
+                width: 100%;
+                height: 300px;
+            }
+        }
     </style>
 </body>
 

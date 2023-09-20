@@ -361,38 +361,57 @@
         </script>
 
         <script>
-            var swiper = new Swiper(".mySwiper9", {
-                autoplay: true,
-                rewind: false,
-                slidesPerView: 3,
-                spaceBetween: 30,
-                pagination: {
-                    el: ".swiper-pagination",
-                    type: "fraction",
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-            });
+            const makeSwipers = (slideNum) => {
+                var swiper1 = new Swiper(".mySwiper9", {
+                    autoplay: true,
+                    rewind: false,
+                    slidesPerView: slideNum,
+                    spaceBetween: 30,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        type: "fraction",
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                });
+                var swiper2 = new Swiper(".mySwiper8", {
+                    autoplay: true,
+                    rewind: false,
+                    slidesPerView: slideNum,
+                    spaceBetween: 30,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        type: "fraction",
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                });
+            }
+
+            checkSize = (winSize) => {
+                var slideNum = 3
+                if (winSize > 999) {
+                    slideNum = 3
+                } else if (winSize < 1000 && winSize > 780) {
+                    slideNum = 2
+                } else if (winSize < 781) {
+                    slideNum = 1
+                }
+                makeSwipers(slideNum)
+            }
+            checkSize(window.innerWidth)
+            console.log(window.innerWidth);
+
+            window.onresize = () => {
+                checkSize(window.innerWidth)
+                console.log(window.innerWidth);
+            }
         </script>
 
-        <script>
-            var swiper = new Swiper(".mySwiper8", {
-                autoplay: true,
-                rewind: false,
-                slidesPerView: 3,
-                spaceBetween: 30,
-                pagination: {
-                    el: ".swiper-pagination",
-                    type: "fraction",
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-            });
-        </script>
         <!-- Initialize Swiper -->
         <script>
             var swiper = new Swiper(".mySwiper", {

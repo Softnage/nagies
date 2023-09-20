@@ -59,6 +59,17 @@
             width: 90%;
             height: 500px;
         }
+
+        @media only screen and (max-width: 780px) {
+            .events {
+                grid-template-columns: 1fr;
+            }
+
+            .events img {
+                width: 100%;
+                height: 300px;
+            }
+        }
     </style>
 </body>
 
