@@ -14,13 +14,13 @@
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="./images/nagies-school-hero1.jpg" alt="school-banner">
+                <img src="./images/Nagies-hero-1.jpg" alt="school-banner">
             </div>
             <div class="swiper-slide">
                 <img src="./images/Nagies-school-hero-2.jpg" alt="school-banner">
             </div>
             <div class="swiper-slide">
-                <img src="./images/Nagies-hero-1.jpg" alt="">
+                <img src="./images/Nagies-school-hero-3.jpg" alt="">
             </div>
             <div class="swiper-slide">
                 <img src="./images/school-banner-01.jpg" alt="school-banner">
