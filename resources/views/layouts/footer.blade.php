@@ -12,6 +12,7 @@
             <p><a href="pre-school.php">Our Pre-school</a></p>
             <p><a href="primary.php">Our Primary</a></p>
             <p><a href="jhs.php">Our JHS</a></p>
+            <p><a href="https://www.sycasane.com/server/parentslogin.php?compcode=NAGIES">School Portal</a></p>
 
         </div>
         <div class="col-md-3 ft-down">

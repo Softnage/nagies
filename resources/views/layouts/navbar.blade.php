@@ -56,6 +56,9 @@
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="{{ route('contact') }}">Contact Us</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="https://www.sycasane.com/server/parentslogin.php?compcode=NAGIES" target="_blank">School Portal</a>
+                </li>
             </ul>
 
 
